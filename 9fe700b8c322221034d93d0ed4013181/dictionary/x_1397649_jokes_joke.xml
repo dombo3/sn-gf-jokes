@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="cf980cf8c322221034d93d0ed4013110" label="Joke" max_length="40" name="x_1397649_jokes_joke" type="collection">
+        <element attributes="encode_utf8=false" label="Author" max_length="32" name="author" reference="sys_user" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" label="Notes" max_length="1024" name="notes" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Joke" max_length="1024" name="joke" type="string"/>
+        <element attributes="edge_encryption_enabled=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" type="string"/>
+        <index name="index">
+            <element name="author"/>
+        </index>
+    </element>
+</database>

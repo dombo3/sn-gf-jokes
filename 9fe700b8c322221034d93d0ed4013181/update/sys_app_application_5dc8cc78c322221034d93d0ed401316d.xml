@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_app_application">
+    <sys_app_application action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <category display_value="">Custom Applications</category>
+        <description>s</description>
+        <device_type>browser</device_type>
+        <hint>s</hint>
+        <name/>
+        <order/>
+        <roles>admin</roles>
+        <sys_class_name>sys_app_application</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-07-02 12:00:43</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>5dc8cc78c322221034d93d0ed401316d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Jokes</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Jokes" source="x_1397649_jokes">9fe700b8c322221034d93d0ed4013181</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Jokes">9fe700b8c322221034d93d0ed4013181</sys_scope>
+        <sys_update_name>sys_app_application_5dc8cc78c322221034d93d0ed401316d</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-07-02 12:00:43</sys_updated_on>
+        <title>Jokes</title>
+        <view_name/>
+    </sys_app_application>
+</record_update>
