@@ -12,13 +12,13 @@
         <change_fields>false</change_fields>
         <client_callable>false</client_callable>
         <collection>x_1397649_jokes_joke</collection>
-        <condition>!current.isNewRecord()</condition>
+        <condition/>
         <description/>
         <execute_function>false</execute_function>
         <filter_condition/>
         <is_rest>false</is_rest>
         <message/>
-        <name>Author Email Provider</name>
+        <name>Joke Count Provider</name>
         <order>100</order>
         <priority>100</priority>
         <rest_method/>
@@ -28,28 +28,32 @@
         <rest_variables/>
         <role_conditions/>
         <script><![CDATA[(function executeRule(current, previous /*null when async*/) {
-	var author = current.author.getRefRecord();
-	if (author.isValidRecord()) {
-		g_scratchpad.email = author.email;
+	var author = current.author;
+	var jokeGa = new GlideAggregate("x_1397649_jokes_joke");
+	jokeGa.addAggregate("COUNT");
+	jokeGa.addQuery("author", author);
+	jokeGa.query();
+	if (jokeGa.next()) {
+		g_scratchpad.joke_count = jokeGa.getAggregate("COUNT");
 	}
 })(current, previous);]]></script>
         <sys_class_name>sys_script</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2025-07-06 09:43:50</sys_created_on>
+        <sys_created_on>2025-07-08 10:09:27</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
-        <sys_id>1c1e8846c322221034d93d0ed40131e9</sys_id>
-        <sys_mod_count>4</sys_mod_count>
-        <sys_name>Author Email Provider</sys_name>
+        <sys_id>70062a26c322221034d93d0ed40131c1</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>Joke Count Provider</sys_name>
         <sys_overrides/>
         <sys_package display_value="Jokes" source="x_1397649_jokes">9fe700b8c322221034d93d0ed4013181</sys_package>
         <sys_policy/>
         <sys_scope display_value="Jokes">9fe700b8c322221034d93d0ed4013181</sys_scope>
-        <sys_update_name>sys_script_1c1e8846c322221034d93d0ed40131e9</sys_update_name>
+        <sys_update_name>sys_script_70062a26c322221034d93d0ed40131c1</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-07-08 10:24:52</sys_updated_on>
+        <sys_updated_on>2025-07-08 10:19:47</sys_updated_on>
         <template/>
         <when>before_display</when>
     </sys_script>
-    <sys_translated_text action="delete_multiple" query="documentkey=1c1e8846c322221034d93d0ed40131e9"/>
+    <sys_translated_text action="delete_multiple" query="documentkey=70062a26c322221034d93d0ed40131c1"/>
 </record_update>
