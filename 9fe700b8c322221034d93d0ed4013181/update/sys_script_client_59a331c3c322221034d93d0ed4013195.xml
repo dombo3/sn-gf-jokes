@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
     <sys_script_client action="INSERT_OR_UPDATE">
-        <active>false</active>
+        <active>true</active>
         <applies_extended>false</applies_extended>
         <condition/>
         <description/>
@@ -8,37 +8,33 @@
         <global>true</global>
         <isolate_script>true</isolate_script>
         <messages/>
-        <name>Bomb defuse</name>
+        <name>JokesAsync Client</name>
         <order/>
         <script><![CDATA[function onLoad() {
-    var sec = 10;
-    var timer = setInterval(function(tick) {
-        sec -= 1;
-        g_form.clearMessages();
-		g_form.addInfoMessage(`This Joke will be deleted in: ${sec} seconds ]]>💣<![CDATA[`);
-    }, 1000);
+   var ga = new GlideAjax("JokesAsync");
+   ga.addParam('sysparm_name', 'timeout');
+   ga.getXMLAnswer(function (result) {
+	g_form.addInfoMessage(result);
+   });
 
-    setTimeout(function() {
-        clearInterval(timer);
-		g_form.clearMessages();
-        g_form.addInfoMessage("Just kidding ]]>😛<![CDATA[");
-    }, 8999);
+   g_form.addInfoMessage("After Hello");
+   
 }]]></script>
         <sys_class_name>sys_script_client</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2025-07-08 15:33:02</sys_created_on>
+        <sys_created_on>2025-07-09 19:36:13</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
-        <sys_id>9f417f22c3a6221034d93d0ed4013166</sys_id>
-        <sys_mod_count>6</sys_mod_count>
-        <sys_name>Bomb defuse</sys_name>
+        <sys_id>59a331c3c322221034d93d0ed4013195</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>JokesAsync Client</sys_name>
         <sys_overrides/>
         <sys_package display_value="Jokes" source="x_1397649_jokes">9fe700b8c322221034d93d0ed4013181</sys_package>
         <sys_policy/>
         <sys_scope display_value="Jokes">9fe700b8c322221034d93d0ed4013181</sys_scope>
-        <sys_update_name>sys_script_client_9f417f22c3a6221034d93d0ed4013166</sys_update_name>
+        <sys_update_name>sys_script_client_59a331c3c322221034d93d0ed4013195</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-07-09 19:36:56</sys_updated_on>
+        <sys_updated_on>2025-07-09 19:46:06</sys_updated_on>
         <table>x_1397649_jokes_joke</table>
         <type>onLoad</type>
         <ui_type>0</ui_type>
