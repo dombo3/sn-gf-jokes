@@ -8,12 +8,26 @@
         <description>
 |
 Methods:
-* timeout()</description>
+* timeout()
+* getJokeCount()</description>
         <name>JokesAsync</name>
         <script><![CDATA[var JokesAsync = Class.create();
 JokesAsync.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {	
 	timeout: function() {
 		return "hello";
+	},
+
+	getJokeCount: function() {
+		var author = this.getParameter('sysparm_author');
+		var jokeGa = new GlideAggregate("x_1397649_jokes_joke");
+		jokeGa.addAggregate("COUNT");
+		jokeGa.addQuery("author", author);
+		jokeGa.query();
+		if (jokeGa.next()) {
+			return jokeGa.getAggregate("COUNT");
+		}
+
+		return 0;
 	},
     
 	type: 'JokesAsync'
@@ -22,13 +36,13 @@ JokesAsync.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2025-07-09 19:33:02</sys_created_on>
         <sys_id>6af23183c322221034d93d0ed40131f7</sys_id>
-        <sys_mod_count>4</sys_mod_count>
+        <sys_mod_count>5</sys_mod_count>
         <sys_name>JokesAsync</sys_name>
         <sys_package display_value="Jokes" source="x_1397649_jokes">9fe700b8c322221034d93d0ed4013181</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="Jokes">9fe700b8c322221034d93d0ed4013181</sys_scope>
         <sys_update_name>sys_script_include_6af23183c322221034d93d0ed40131f7</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-07-09 19:44:29</sys_updated_on>
+        <sys_updated_on>2025-07-10 07:32:09</sys_updated_on>
     </sys_script_include>
 </record_update>
